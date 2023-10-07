@@ -2,12 +2,12 @@
 body, h1, h2, h4, p, ul, li {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif; /* Change the font to Arial */
+    font-family: Arial, sans-serif; /* Change the font to Arial */
 }
 
 /* Basic styling */
 body {
-    background-color: #fdfdfd; /* Light Brown */
+    background-color: #f4f4f4; /* Light Brown */
 }
 
 header {
@@ -36,7 +36,7 @@ header {
 }
 
 .navbar a.active {
-    background-color: #92afb9; /* Darker Pastel Blue */
+    background-color: #6e878f; /* Darker Pastel Blue */
 }
 
 .hero {
