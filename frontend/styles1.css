@@ -7,7 +7,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
 }
 
 .login-container {
@@ -112,33 +111,4 @@ button:hover {
 .about h1 {
     font-size: 24px;
     color: #3a3a3a; /* Brown */
-}
-
-header {
-    background-color: #a0c8d6; /* Pastel Blue */
-    color: #fff;
-    padding: 10px 0;
-    text-align: right; /* Align the navigation to the right */
-}
-
-.navbar {
-    list-style-type: none;
-    display: inline-block; /* Make the navbar horizontal */
-}
-
-.navbar li {
-    display: inline;
-    margin-left: 20px; /* Adjust spacing between items */
-}
-
-.navbar a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-.navbar a.active {
-    background-color: #92afb9; /* Darker Pastel Blue */
 }

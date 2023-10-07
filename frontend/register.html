@@ -101,6 +101,16 @@
     </style>
 </head>
 <body>
+    <header>
+        <nav>
+            <ul class="navbar">
+                <li><a href="home.html" class="active">HOME</a></li>
+                <li><a href="about.html" id="about">ABOUT</a></li>
+                <li><a href="register.html" id="regis">REGISTER</a></li>
+                <li><a href="login.html" id="login">LOGIN</a></li>
+            </ul>
+        </nav>
+    </header>
     <div class="register-container">
         <div class="register-box">
             <h2>Register Now</h2>
@@ -137,44 +147,7 @@
         </div>
     </div>
 
-    <script>
-        function validateForm() {
-            // Get form input values
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            const confirmPassword = document.getElementById("confirm-password").value;
-            const rollnumber = document.getElementById("rollnumber").value;
-
-            // Simple validation example (you can customize this)
-            if (name.trim() === "") {
-                alert("Please enter your name.");
-                return false;
-            }
-
-            if (email.trim() === "") {
-                alert("Please enter your email.");
-                return false;
-            }
-
-            if (password.trim() === "") {
-                alert("Please enter a password.");
-                return false;
-            }
-
-            if (password !== confirmPassword) {
-                alert("Passwords do not match.");
-                return false;
-            }
-
-            if (rollnumber.trim() === "") {
-                alert("Please enter your roll number.");
-                return false;
-            }
-
-            alert("Registration successful!");
-            return true;
-        }
+    <script src="verify.js">
     </script>
 </body>
 </html>

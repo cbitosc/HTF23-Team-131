@@ -41,7 +41,7 @@ header {
 
 .hero {
     text-align: center;
-    padding: 80px 0;
+    padding: 100px;
 }
 
 .hero h1 {
@@ -66,13 +66,57 @@ header {
 }
 
 .about {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     padding: 40px 0;
+    background-color: #c9e3e7; /* Login box background color */
+    border-radius: 10px;
+    box-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 600px;
+    max-width: 100%;
+    border: 2px solid #83c8db; /* Outline color */
+    text-align: center;
+    max-height: 400px;
+    overflow-y: auto;
 }
 
 .about h2 {
     font-size: 24px;
     color: #3a3a3a; /* Brown */
+}
+
+.bens{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 40px 0;
+    background-color: #c9e3e7; /* Login box background color */
+    border-radius: 10px;
+    box-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 900px;
+    max-width: 100%;
+    border: 2px solid #83c8db; /* Outline color */
+    text-align: center;
+    max-height: 400px;
+    overflow-y: auto;
+    list-style-type: none;
+}
+.bens li {
+    text-decoration: none;
+    color: #000000;
+    padding: 5px 8px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    display: inline;
+    margin: 50px;
 }
 
 footer {
