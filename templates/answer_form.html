@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Answer Form - {{ form['title'] }}</title>
+</head>
+<body>
+    <h1>{{ form['title'] }}</h1>
+    <form action="/forms/{{ form_id }}" method="POST">
+        {% for question in form['questions'] %}
+        <label>{{ question['text'] }}</label><br>
+        
+        {% if question['type'] == 'text' %}
+        <textarea name="answer" rows="3" required></textarea><br><br>
+        
+        {% elif question['type'] == 'radio' %}
+        {% for option in question['options'] %}
+        <input type="radio" name="answer" value="{{ option }}" required>
+        {{ option }}<br>
+        {% endfor %}
+        
+        {% elif question['type'] == 'checkbox' %}
+        {% for option in question['options'] %}
+        <input type="checkbox" name="answer" value="{{ option }}">
+        {{ option }}<br>
+        {% endfor %}
+        
+        {% elif question['type'] == 'scale' %}
+        <label for="scale">{{ question['min_scale'] }} (Min)</label>
+        <input type="range" name="answer" min="{{ question['min_scale'] }}" max="{{ question['max_scale'] }}" required>
+        <label for="scale">{{ question['max_scale'] }} (Max)</label><br><br>
+        {% endif %}
+        
+        {% endfor %}
+        
+        <button type="submit">Submit</button>
+    </form>
+    <a href="/">Back to Forms</a>
+</body>
+</html>

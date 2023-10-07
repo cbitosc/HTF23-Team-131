@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Form</title>
+</head>
+<body>
+    <h1>Create a Form</h1>
+    <form action="/create-form" method="POST">
+        <label for="form_title">Form Title:</label>
+        <input type="text" name="form_title" required><br><br>
+
+        <!-- Allow users to add multiple questions with different types -->
+        <div id="questions">
+            <div class="question">
+                <label for="question">Question:</label>
+                <input type="text" name="question" required>
+                <label for="question_type">Question Type:</label>
+                <select name="question_type" class="question-type" required>
+                    <option value="text">Paragraph Style</option>
+                    <option value="radio">Radio Buttons</option>
+                    <option value="checkbox">Checkboxes</option>
+                    <option value="scale">Scale Style</option>
+                </select>
+                <div class="options" style="display: none;">
+                    <label for="num_options">Number of Options:</label>
+                    <input type="number" name="num_options" class="num-options" min="2" value="2">
+                    <button type="button" class="add-option">Add Options</button>
+                    <div class="option-inputs"></div>
+                </div>
+                <div class="scale-range" style="display: none;">
+                    <label for="min_scale">Minimum Scale Value:</label>
+                    <input type="number" name="min_scale" class="min-scale" value="1" required>
+                    <label for="max_scale">Maximum Scale Value:</label>
+                    <input type="number" name="max_scale" class="max-scale" value="10" required>
+                </div>
+            </div>
+        </div>
+
+        <button type="button" id="add-question">Add Question</button><br><br>
+        <button type="submit">Create Form</button>
+    </form>
+
+    <script>
+        // JavaScript to add more questions dynamically
+        document.getElementById('add-question').addEventListener('click', function () {
+            var questionsDiv = document.getElementById('questions');
+            var questionDiv = document.createElement('div');
+            questionDiv.className = 'question';
+            questionDiv.innerHTML = `
+                <label for="question">Question:</label>
+                <input type="text" name="question" required>
+                <label for="question_type">Question Type:</label>
+                <select name="question_type" class="question-type" required>
+                    <option value="text">Paragraph Style</option>
+                    <option value="radio">Radio Buttons</option>
+                    <option value="checkbox">Checkboxes</option>
+                    <option value="scale">Scale Style</option>
+                </select>
+                <div class="options" style="display: none;">
+                    <label for="num_options">Number of Options:</label>
+                    <input type="number" name="num_options" class="num-options" min="2" value="2">
+                    <button type="button" class="add-option">Add Options</button>
+                    <div class="option-inputs"></div>
+                </div>
+                <div class="scale-range" style="display: none;">
+                    <label for="min_scale">Minimum Scale Value:</label>
+                    <input type="number" name="min_scale" class="min-scale" value="1" required>
+                    <label for="max_scale">Maximum Scale Value:</label>
+                    <input type="number" name="max_scale" class="max-scale" value="10" required>
+                </div>
+            `;
+            questionsDiv.appendChild(questionDiv);
+
+            // Attach event listeners for dynamic elements
+            attachEventListeners(questionDiv);
+        });
+
+        // Function to attach event listeners to dynamic elements
+        function attachEventListeners(parentDiv) {
+            var questionType = parentDiv.querySelector('.question-type');
+            var optionsDiv = parentDiv.querySelector('.options');
+            var scaleRangeDiv = parentDiv.querySelector('.scale-range');
+            var addOptionButton = parentDiv.querySelector('.add-option');
+
+            questionType.addEventListener('change', function () {
+                if (questionType.value === 'radio' || questionType.value === 'checkbox') {
+                    optionsDiv.style.display = 'block';
+                    scaleRangeDiv.style.display = 'none';
+                } else if (questionType.value === 'scale') {
+                    optionsDiv.style.display = 'none';
+                    scaleRangeDiv.style.display = 'block';
+                } else {
+                    optionsDiv.style.display = 'none';
+                    scaleRangeDiv.style.display = 'none';
+                }
+            });
+
+            addOptionButton.addEventListener('click', function () {
+                var optionInputsDiv = parentDiv.querySelector('.option-inputs');
+                var numOptionsInput = parentDiv.querySelector('.num-options');
+                var numOptions = parseInt(numOptionsInput.value);
+                for (var i = 0; i < numOptions; i++) {
+                    var optionInput = document.createElement('input');
+                    optionInput.type = 'text';
+                    optionInput.name = 'options';
+                    optionInput.placeholder = 'Option ' + (i + 1);
+                    optionInputsDiv.appendChild(optionInput);
+                }
+            });
+        }
+
+        // Attach initial event listeners for the first question
+        attachEventListeners(document.querySelector('.question'));
+    </script>
+
+    <a href="/">Back to Forms</a>
+</body>
+</html>
