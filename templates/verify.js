@@ -33,6 +33,5 @@ function validateForm() {
     }
 
     alert("Registration successful!");
-    window.location.href= 'beforeyear.html';
-    return true;
+    window.location= 'beforeyear.html';
 }

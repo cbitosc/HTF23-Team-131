@@ -41,7 +41,7 @@ def create_form():
 
         form = {'title': form_title, 'questions': questions}
         forms.append(form)
-        return redirect(url_for('index'))
+        return redirect(url_for('index.html'))
     
     return render_template('create_form.html')
 

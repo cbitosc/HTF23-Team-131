@@ -1,0 +1,97 @@
+/* Reset some default styles */
+body, h1, h2, h4, p, ul, li {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Change the font to Arial */
+}
+
+/* Basic styling */
+body {
+    background-color: #f4f4f4; /* Light Brown */
+}
+
+header {
+    background-color: #a0c8d6; /* Pastel Blue */
+    color: #fff;
+    padding: 10px 0;
+    text-align: right; /* Align the navigation to the right */
+}
+
+.navbar {
+    list-style-type: none;
+    display: inline-block; /* Make the navbar horizontal */
+}
+
+.navbar li {
+    display: inline;
+    margin-left: 20px; /* Adjust spacing between items */
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.navbar a.active {
+    background-color: #6e878f; /* Darker Pastel Blue */
+}
+
+.hero {
+    text-align: center;
+    padding: 100px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #3a3a3a; /* Brown */
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3a3a3a; /* Brown */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #6e878f; /* Darker Pastel Blue */
+}
+
+.about {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 40px 0;
+    background-color: #c9e3e7; /* Login box background color */
+    border-radius: 10px;
+    box-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 600px;
+    max-width: 100%;
+    border: 2px solid #83c8db; /* Outline color */
+    text-align: center;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.about h2 {
+    font-size: 24px;
+    color: #3a3a3a; /* Brown */
+}
+
+footer {
+    text-align: center;
+    background-color: #a0c8d6; /* Pastel Blue */
+    color: #fff;
+    padding: 10px 0;
+}

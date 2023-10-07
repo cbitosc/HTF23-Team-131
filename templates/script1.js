@@ -4,7 +4,7 @@
     }
     function navigateToPage1() {
         // Use window.location to navigate to the desired HTML file
-        window.location= 'HTF23-Team-131/templates/create_form.html';
+        window.location= 'create_form.html';
     }
         // Function to animate the boxes on page load
     function animateBoxes() {
