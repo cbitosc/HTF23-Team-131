@@ -56,5 +56,5 @@ def answer_form(form_id):
     
     return render_template('answer_form.html', form=form)
 
-if __name__ == '_main_':
+if __name__ == '__main__':
     app.run(debug=True)

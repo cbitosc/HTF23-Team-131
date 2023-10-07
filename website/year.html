@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>SurveyBox</title>
+    <title>Survey Box</title>
     <style>
         body {
+          .box:hover {
+    transform: translateY(-10px) scale(1.05);
+    background-color: #1f5565;
+    transition: transform 0.3s ease-in-out, background-color 0.3s;
+}
             font-family: Arial, sans-serif;
             background-color: #aad9e6;
             display: flex;
@@ -29,34 +34,19 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 350px;
-            height: 110px;
+            width: 400px;
             max-width: 100%;
             border: 2px solid #1f5565;
             text-align: center;
             margin-bottom: 20px;
             transform: translateY(-20px);
             opacity: 0;
-            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, background-color 0.3s, width 0.3s, height 0.3s;
-            position: relative;
-        }
-
-        .box:before {
-            content: "";
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            border: 0px solid #1f5565;
-            border-radius: 12px;
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, background-color 0.3s;
         }
 
         .box:hover {
             transform: translateY(-10px) scale(1.05);
-            background-color: #1a4856;
-            width: 370px;
-            height: 130px;
+            background-color: #08313a;
         }
 
         .box.active {
@@ -73,25 +63,7 @@
 
         .button-container {
             margin-top: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s;
         }
-      .button-container button {
-    padding: 15px 40px;
-    background-color: #08313a;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.button-container button:hover {
-    background-color: #1a4856;
-    cursor: pointer;
-}
-
 
         button {
             padding: 15px 40px;
@@ -106,27 +78,33 @@
 
         button:hover {
             background-color: #1a4856;
-            cursor: pointer;
-        }
-
-        /* Add icons to the box titles */
-        .box-title i {
-            margin-right: 10px;
         }
     </style>
 </head>
 <body>
     <div class="box-container">
         <div class="box active">
-            <div class="box-title"><i class="fas fa-user-graduate"></i>STUDENT</div>
+          <div class="box-title">First Year I</div>
             <div class="button-container">
-                <button onclick="navigateTo('year.html')">Start</button>
+                <button onclick="navigateTo('index.html')">Start</button>
             </div>
         </div>
         <div class="box">
-            <div class="box-title"><i class="fas fa-chalkboard-teacher"></i>TEACHER</div>
+            <div class="box-title">Second Year II</div>
             <div class="button-container">
-                <button onclick="navigateTo('teacher.html')">Start</button>
+                <button onclick="navigateTo('index.html')">Start</button>
+            </div>
+        </div>
+        <div class="box">
+            <div class="box-title">Third Year III</div>
+            <div class="button-container">
+                <button onclick="navigateTo('index.html')">Start</button>
+            </div>
+        </div>
+        <div class="box">
+            <div class="box-title">Fourth Year IV</div>
+            <div class="button-container">
+                <button onclick="navigateTo('index.html')">Start</button>
             </div>
         </div>
     </div>

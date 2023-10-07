@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Create Form</title>
+    <link rel="stylesheet" type="text/css" href="C:\Users\styar\OneDrive\Desktop\htf team 131\HTF23-Team-131\static\styles3.css">
 </head>
 <body>
     <h1>Create a Form</h1>
@@ -37,10 +38,15 @@
         </div>
 
         <button type="button" id="add-question">Add Question</button><br><br>
-        <button type="submit">Create Form</button>
+        <button type="submit" onclick="navigateTo('year.html')">Create Form</button>
+
     </form>
 
     <script>
+        function navigateTo(url){
+            window.location.href=url;
+
+        }
         // JavaScript to add more questions dynamically
         document.getElementById('add-question').addEventListener('click', function () {
             var questionsDiv = document.getElementById('questions');
@@ -112,7 +118,5 @@
         // Attach initial event listeners for the first question
         attachEventListeners(document.querySelector('.question'));
     </script>
-
-    <a href="/">Back to Forms</a>
 </body>
 </html>

@@ -1,6 +1,6 @@
         // Function to navigate to a new page
         function navigateTo(url) {
-            window.location.href = url;
+            window.location= url;
         }
 
         // Function to animate the boxes on page load
