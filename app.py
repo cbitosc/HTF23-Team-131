@@ -87,10 +87,19 @@ def answer_form(form_id):
         answers = request.form.getlist('answer')
         response = {'form_title': form['title'], 'answers': answers}
         responses.append(response)
-        return redirect(url_for('index'))
+        return redirect(url_for('show_results', form_id=form_id))
     
     return render_template('answer_form.html',form=form)
 
+
+@app.route('/results/<int:form_id>')
+def show_results(form_id):
+    if form_id < len(forms) and form_id < len(responses):
+        form = forms[form_id]
+        response = responses[form_id]
+        return render_template('submit.html', form=form, response=response)
+    else:
+        return "Form or response not found"
 
 if __name__ == '__main__':
     app.run(debug=True)

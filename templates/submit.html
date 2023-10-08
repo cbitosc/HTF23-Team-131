@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Survey Answers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #aad9e6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 40px 0;
+    background-color: #c9e3e7; /* Login box background color */
+    border-radius: 10px;
+    box-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 600px;
+    max-width: 100%;
+    border: 2px solid #83c8db; /* Outline color */
+    text-align: center;
+    max-height: 400px;
+    overflow-y: auto;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #195e5e;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        /* Responsive styles */
+        @media screen and (max-width: 768px) {
+            .container {
+                width: 90%;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Survey Results for "{{ form['title'] }}"</h1>
+        <ul>
+            {% for i, question in enumerate(form['questions']) %}
+            <li>{{ question }}: {{ response['answers'][i] }}</li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('index') }}">Back To Forms</a>
+    </div>
+    </body>
+</body>
+</html>
