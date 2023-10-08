@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Survey Answers</title>
+    <title>Form Results - {{ form['title'] }}</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -65,11 +65,15 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Form Submitted Successfully</h1>
-        <p>Thank you for your responses!</p>
-        <a href="{{ url_for('show_results', form_id=form['id']) }}">View Results</a>        
-    </div>
-    </body>
+    <h1>Form Results - {{ form['title'] }}</h1>
+    
+    <!-- Display the questions and responses -->
+    <ul>
+        {% for i, question in enumerate(form['questions']) %}
+            <li>{{ question['text'] }}: {{ response[i] }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('show_results', form_id=form['id']) }}">Back to Results</a>
 </body>
 </html>

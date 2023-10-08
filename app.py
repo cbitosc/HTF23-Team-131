@@ -87,19 +87,29 @@ def answer_form(form_id):
         answers = request.form.getlist('answer')
         response = {'form_title': form['title'], 'answers': answers}
         responses.append(response)
+        return redirect(url_for('submit_form', form_id=form_id))
+    
+    return render_template('answer_form.html', form=form)
+
+@app.route('/forms/<int:form_id>/submit', methods=['GET', 'POST'])
+def submit_form(form_id):
+    form = forms[form_id]
+    if request.method == 'POST':
+        answers = request.form.getlist('answer')
+        response = {'form_title': form['title'], 'answers': answers}
+        responses.append(response)
         return redirect(url_for('show_results', form_id=form_id))
     
-    return render_template('answer_form.html',form=form)
+    return render_template('submit.html', form=form, form_id=form_id)
+
 
 
 @app.route('/results/<int:form_id>')
 def show_results(form_id):
-    if form_id < len(forms) and form_id < len(responses):
-        form = forms[form_id]
-        response = responses[form_id]
-        return render_template('submit.html', form=form, response=response)
-    else:
-        return "Form or response not found"
+    form = forms[form_id]
+    response_list = [response['answers'] for response in responses if response['form_title'] == form['title']]
+    return render_template('results.html', form=form, responses=response_list)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
