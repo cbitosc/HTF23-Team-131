@@ -7,7 +7,7 @@
         window.location= 'create_form.html';
     }
         // Function to animate the boxes on page load
-    function animateBoxes() {
+    /*function animateBoxes() {
         const boxes = document.querySelectorAll('.box');
         let delay = 0;
 
@@ -17,7 +17,7 @@
             }, delay);
             delay += 500; // Adjust the delay between boxes (in milliseconds)
         });
-    }
+    }*/
 
     // Call the animateBoxes function when the page loads
     window.addEventListener('load', animateBoxes);

@@ -108,10 +108,11 @@ footer {
     <header>
         <nav>
             <ul class="navbar">
-                <li><a href="#" class="active">HOME</a></li>
-                <li><a href="about.html" id="about">ABOUT</a></li>
-                <li><a href="register.html" id="regis">REGISTER</a></li>
-                <li><a href="login.html" id="login">LOGIN</a></li>
+                <li><a href="#" class="active" >HOME</a></li>
+                <li><a href="{{ url_for('about') }}" id="about">ABOUT</a></li>
+                <li><a href="{{ url_for('registration') }}" id="regis">REGISTER</a></li>
+                <li><a href="{{ url_for('login') }}" id="login">LOGIN</a></li>
+
             </ul>
         </nav>
     </header>
@@ -124,8 +125,5 @@ footer {
         <br><br>
         <a href="register.html" class="cta-button">Get Started</a>
     </section>
-    <footer>
-        <p>&copy; 2023 Survey and Feedback</p>
-    </footer>
 </body>
 </html>

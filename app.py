@@ -7,8 +7,30 @@ forms = []
 responses = []
 
 @app.route('/')
-def index():
-    return render_template('index.html', forms=forms)
+def home():
+    return render_template('home.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+@app.route('/register')
+def registration():
+    return render_template('register.html')
+
+@app.route('/choose-role', methods=['GET', 'POST'])
+def choose_role():
+    if request.method == 'POST':
+        role = request.form['role']
+        if role == 'teacher':
+            return redirect(url_for('create_form'))
+        elif role == 'student':
+            return redirect(url_for('choose_year'))
+    return render_template('beforeyear.html')
 
 @app.route('/create-form', methods=['GET', 'POST'])
 def create_form():
@@ -41,9 +63,22 @@ def create_form():
 
         form = {'title': form_title, 'questions': questions}
         forms.append(form)
-        return redirect(url_for('index.html'))
+        return redirect(url_for('index'))
     
     return render_template('create_form.html')
+
+@app.route('/choose-year', methods=['GET', 'POST'])
+def choose_year():
+    if request.method == 'POST':
+        year = request.form['year']
+        # You can perform actions based on the selected year if needed
+        return redirect(url_for('index'))
+    return render_template('year.html')
+
+@app.route('/index')
+def index():
+    # You can pass data to the index template if needed
+    return render_template('index.html', forms=forms)
 
 @app.route('/forms/<int:form_id>', methods=['GET', 'POST'])
 def answer_form(form_id):
@@ -54,7 +89,8 @@ def answer_form(form_id):
         responses.append(response)
         return redirect(url_for('index'))
     
-    return render_template('answer_form.html', form=form)
+    return render_template('answer_form.html',form=form)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

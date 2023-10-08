@@ -79,23 +79,26 @@
         button:hover {
             background-color: #1a4856;
         }
+        a{
+            color: white;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
     <div class="box-container">
         <div class="box active">
-          <div class="box-title">Teacher</div>
+            <div class="box-title">Teacher</div>
             <div class="button-container">
-                <button onclick="navigateToPage1()">Start</button>
+                <button><a href="{{ url_for('index') }}">Start</a></button>
             </div>
         </div>
-        <div class="box">
+        <div class="box active">
             <div class="box-title">Student</div>
             <div class="button-container">
-                <button onclick="navigateTo('year.html')">Start</button>
+                <a href="{{ url_for('choose_year') }}"><button>Choose Year</button></a>
             </div>
         </div>
-    <script src="script1.js">
-    </script>
+    </div>
 </body>
 </html>

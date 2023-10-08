@@ -79,6 +79,10 @@
         button:hover {
             background-color: #1a4856;
         }
+        a{
+            color: white;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -86,25 +90,25 @@
         <div class="box active">
           <div class="box-title">First Year I</div>
             <div class="button-container">
-                <button onclick="navigateTo('index.html')">Start</button>
+                <button><a href="{{ url_for('index') }}">Start</a></button>
             </div>
         </div>
-        <div class="box">
+        <div class="box active">
             <div class="box-title">Second Year II</div>
             <div class="button-container">
-                <button onclick="navigateTo('index.html')">Start</button>
+                <button><a href="{{ url_for('index') }}">Start</a></button>
             </div>
         </div>
-        <div class="box">
+        <div class="box active">
             <div class="box-title">Third Year III</div>
             <div class="button-container">
-                <button onclick="navigateTo('index.html')">Start</button>
+                <button><a href="{{ url_for('index') }}">Start</a></button>
             </div>
         </div>
-        <div class="box">
+        <div class="box active">
             <div class="box-title">Fourth Year IV</div>
             <div class="button-container">
-                <button onclick="navigateTo('index.html')">Start</button>
+                <button><a href="{{ url_for('index') }}">Start</a></button>
             </div>
         </div>
     </div>
