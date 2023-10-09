@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Form</title>
+    <link rel="stylesheet" type="styles3.css">
+    <style>
+        body, h1, h2, h3, ul, li, form, label {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #aad9e6; /* Match the background color of the starting page */
+    color: #333; /* Change the text color to dark */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #236274; /* Match the background color of the starting page boxes */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px; /* Rounded edges */
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center; /* Center the heading */
+    color: #333; /* Change the heading text color to dark */
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Style the form creation page */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #1f5565; /* Match the border color of the starting page boxes */
+    border-radius: 10px; /* Rounded edges */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333; /* Change label text color to dark */
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #1f5565; /* Match the border color of the starting page boxes */
+    border-radius: 4px;
+}
+
+button {
+    background-color: #08313a; /* Match the button background color of the starting page */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px; /* Rounded edges */
+    display: inline-block;
+    background-color: #3a3a3a; /* Brown */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #1a4856; /* Match the button hover color of the starting page */
+}
+
+/* Style the answer form page */
+form label,
+form input[type="text"],
+form input[type="number"],
+form select {
+    display: block;
+    margin-bottom: 10px;
+    color: #333; /* Change label and input text color to dark */
+}
+
+form input[type="radio"],
+form input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+    </style>
+</head>
+<body>
+    <h1>Create a Form</h1>
+    <form action="/create-form" method="POST">
+
+        <label for="form_title">Form Title:</label>
+        <input type="text" name="form_title" required><br><br>
+
+        <!-- Allow users to add multiple questions with different types -->
+        <div id="questions">
+            <div class="question">
+                <label for="question">Question:</label>
+                <input type="text" name="question" required>
+                <label for="question_type">Question Type:</label>
+                <select name="question_type" class="question-type" required>
+                    <option value="text">Paragraph Style</option>
+                    <option value="radio">Radio Buttons</option>
+                    <option value="checkbox">Checkboxes</option>
+                    <option value="scale">Scale Style</option>
+                </select>
+                <div class="options" style="display: none;">
+                    <label for="num_options">Number of Options:</label>
+                    <input type="number" name="num_options" class="num-options" min="2" value="2">
+                    <button type="button" class="add-option">Add Options</button>
+                    <div class="option-inputs"></div>
+                </div>
+                <div class="scale-range" style="display: none;">
+                    <label for="min_scale">Minimum Scale Value:</label>
+                    <input type="number" name="min_scale" class="min-scale" value="1" required>
+                    <label for="max_scale">Maximum Scale Value:</label>
+                    <input type="number" name="max_scale" class="max-scale" value="10" required>
+                </div>
+            </div>
+        </div>
+
+        <button type="button" id="add-question">Add Question</button><br><br>
+        <button>Create Form</button>
+
+    </form>
+
+    <script>
+        function navigateTo(url){
+            window.location=url;
+
+        }
+        // JavaScript to add more questions dynamically
+        document.getElementById('add-question').addEventListener('click', function () {
+            var questionsDiv = document.getElementById('questions');
+            var questionDiv = document.createElement('div');
+            questionDiv.className = 'question';
+            questionDiv.innerHTML = `
+                <label for="question">Question:</label>
+                <input type="text" name="question" required>
+                <label for="question_type">Question Type:</label>
+                <select name="question_type" class="question-type" required>
+                    <option value="text">Paragraph Style</option>
+                    <option value="radio">Radio Buttons</option>
+                    <option value="checkbox">Checkboxes</option>
+                    <option value="scale">Scale Style</option>
+                </select>
+                <div class="options" style="display: none;">
+                    <label for="num_options">Number of Options:</label>
+                    <input type="number" name="num_options" class="num-options" min="2" value="2">
+                    <button type="button" class="add-option">Add Options</button>
+                    <div class="option-inputs"></div>
+                </div>
+                <div class="scale-range" style="display: none;">
+                    <label for="min_scale">Minimum Scale Value:</label>
+                    <input type="number" name="min_scale" class="min-scale" value="1" required>
+                    <label for="max_scale">Maximum Scale Value:</label>
+                    <input type="number" name="max_scale" class="max-scale" value="10" required>
+                </div>
+            `;
+            questionsDiv.appendChild(questionDiv);
+
+            // Attach event listeners for dynamic elements
+            attachEventListeners(questionDiv);
+        });
+
+        // Function to attach event listeners to dynamic elements
+        function attachEventListeners(parentDiv) {
+            var questionType = parentDiv.querySelector('.question-type');
+            var optionsDiv = parentDiv.querySelector('.options');
+            var scaleRangeDiv = parentDiv.querySelector('.scale-range');
+            var addOptionButton = parentDiv.querySelector('.add-option');
+
+            questionType.addEventListener('change', function () {
+                if (questionType.value === 'radio' || questionType.value === 'checkbox') {
+                    optionsDiv.style.display = 'block';
+                    scaleRangeDiv.style.display = 'none';
+                } else if (questionType.value === 'scale') {
+                    optionsDiv.style.display = 'none';
+                    scaleRangeDiv.style.display = 'block';
+                } else {
+                    optionsDiv.style.display = 'none';
+                    scaleRangeDiv.style.display = 'none';
+                }
+            });
+
+            addOptionButton.addEventListener('click', function () {
+                var optionInputsDiv = parentDiv.querySelector('.option-inputs');
+                var numOptionsInput = parentDiv.querySelector('.num-options');
+                var numOptions = parseInt(numOptionsInput.value);
+                for (var i = 0; i < numOptions; i++) {
+                    var optionInput = document.createElement('input');
+                    optionInput.type = 'text';
+                    optionInput.name = 'options';
+                    optionInput.placeholder = 'Option ' + (i + 1);
+                    optionInputsDiv.appendChild(optionInput);
+                }
+            });
+        }
+
+        // Attach initial event listeners for the first question
+        attachEventListeners(document.querySelector('.question'));
+    </script>
+</body>
+</html>

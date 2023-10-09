@@ -1,0 +1,109 @@
+body, h1, h2, h3, ul, li, form, label {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #aad9e6; /* Match the background color of the starting page */
+    color: #333; /* Change the text color to dark */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #236274; /* Match the background color of the starting page boxes */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px; /* Rounded edges */
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center; /* Center the heading */
+    color: #333; /* Change the heading text color to dark */
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Style the form creation page */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #1f5565; /* Match the border color of the starting page boxes */
+    border-radius: 10px; /* Rounded edges */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333; /* Change label text color to dark */
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #1f5565; /* Match the border color of the starting page boxes */
+    border-radius: 4px;
+}
+
+button {
+    background-color: #08313a; /* Match the button background color of the starting page */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px; /* Rounded edges */
+}
+
+button:hover {
+    background-color: #1a4856; /* Match the button hover color of the starting page */
+}
+
+/* Style the answer form page */
+form label,
+form input[type="text"],
+form input[type="number"],
+form select {
+    display: block;
+    margin-bottom: 10px;
+    color: #333; /* Change label and input text color to dark */
+}
+
+form input[type="radio"],
+form input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
